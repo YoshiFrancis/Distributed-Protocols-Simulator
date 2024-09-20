@@ -1,28 +1,26 @@
 #ifndef NEIGHBOR_HPP_
 #define NEIGHBOR_HPP_
-#include <iostream>
 
-class Neighbor {
+#include <sstream>
 
-private:
-  int _id;
+class Neighbor
+{
+  private:
+    std::stringstream _stream;
+    int _weight;
 
-public:
-  Neighbor();
-  Neighbor(Neighbor &&) = default;
-  Neighbor(const Neighbor &) = default;
-  Neighbor &operator=(Neighbor &&) = default;
-  Neighbor &operator=(const Neighbor &) = default;
-  ~Neighbor();
+  public:
+    Neighbor();
+    Neighbor(Neighbor &&) = default;
+    Neighbor(const Neighbor &) = default;
+    Neighbor &operator=(Neighbor &&) = default;
+    Neighbor &operator=(const Neighbor &) = default;
+    ~Neighbor();
 
-private:
-  
+    void writeTo(std::string message);
+    std::string readFrom();
+    int getWeight() const;
+  private:
 };
-
-Neighbor::Neighbor() {
-}
-
-Neighbor::~Neighbor() {
-}
 
 #endif // !NEIGHBOR
