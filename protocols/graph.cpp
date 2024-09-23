@@ -26,22 +26,30 @@ void generateEdges(std::vector<std::vector<int>>& edges_list) {
 Graph::Graph(Protocol protocol, std::istream& lstream, int nodeCount)
   : _protocol(protocol), _lstream(lstream), _nodeCount(nodeCount), _nodes(nodeCount)
 {
+  std::random_device dev;
+  std::mt19937 rng(dev());
+  std::uniform_int_distribution<std::mt19937::result_type> dist(1,10); 
+
   // making the graph
-  
-  // list<Edge> edges(0)
-  // list<list<int>> edges_list(nodeCount)
-  // generateEdges(edges_list, nodeCount)
-  // create graph from edges list
   std::vector<Edge> edges;
   std::vector<std::vector<int>> adj_list(_nodeCount);
   generateEdges(adj_list);
   for (int idx = 0; idx < _nodeCount; ++idx) {
+    _nodes.push_back(Node(_lstream, protocol, idx));
     for (auto edgeIdx : adj_list[idx]) {
       if (edgeIdx <= idx)  // if the edgeIdx is smaller than the current idx, the edgeIdx would have already made the neighbor connection on their iteration
         continue; 
-      // make connection for sending/receiving for both
-      // each node will receive their own copy of an edge to send/rcv data
+      std::stringstream connection_1;
+      std::stringstream connection_2;
+      _streams.push_back(connection_1);
+      _streams.push_back(connection_2);
+      int weight = dist(rng);
+      Edge nodeOneEdge(connection_1, connection_2, weight, edgeIdx);
+      _nodes[idx].addEdge(nodeOneEdge, true);
+      _nodes[idx].addEdge(nodeOneEdge, false);
+      Edge nodeTwoEdge(connection_2, connection_1, weight, idx);
+      _nodes[edgeIdx].addEdge(nodeTwoEdge, true);
+      _nodes[edgeIdx].addEdge(nodeTwoEdge, false);
     }
   }
-
 }

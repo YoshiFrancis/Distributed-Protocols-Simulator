@@ -8,20 +8,21 @@
 class Node
 {
 private:
-  std::istringstream& _lstream; // input string stream to listener stream
-  std::vector<Neighbor> _neighborsTo;
-  std::vector<Neighbor> _neighborsFrom;
+  std::istream& _lstream; // input string stream to listener stream
+  std::vector<Edge> _neighborsTo;
+  std::vector<Edge> _neighborsFrom;
   Protocol _proto;
   int _id;
 
 public:
-  Node(std::istringstream& lstream, const std::vector<Neighbor>& neighborsTo, const std::vector<Neighbor>& neighborsFrom, Protocol proto, int id);
+  Node(std::istream& lstream, Protocol proto, int id);
   virtual ~Node();
+  void addEdge(Edge edge, bool to);
   perform();
 
 private:
   std::string read();
-  void write(std::string message);
+  void write(std::string message, int id);
 
 };
 

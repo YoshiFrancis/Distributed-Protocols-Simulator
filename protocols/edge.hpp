@@ -3,24 +3,27 @@
 
 #include <sstream>
 
-class Neighbor
+// bidirectional
+class Edge
 {
   private:
-    std::stringstream _stream;
+    std::istream& _istream;
+    std::ostream& _ostream;
     int _weight;
+    int _id;
 
   public:
-    Neighbor();
-    Neighbor(Neighbor &&) = default;
-    Neighbor(const Neighbor &) = default;
-    Neighbor &operator=(Neighbor &&) = default;
-    Neighbor &operator=(const Neighbor &) = default;
-    ~Neighbor();
+    Edge(std::istream& stream, std::ostream& ostream, int weight, int id);
+    Edge(Edge &&) = default;
+    Edge(const Edge &) = default;
+    Edge &operator=(Edge &&) = default;
+    Edge &operator=(const Edge &) = default;
+    ~Edge();
 
-    void writeTo(std::string message);
-    std::string readFrom();
+    void write(std::string message);
+    std::string read();
     int getWeight() const;
-  private:
+    int getId() const;
 };
 
 #endif // !NEIGHBOR

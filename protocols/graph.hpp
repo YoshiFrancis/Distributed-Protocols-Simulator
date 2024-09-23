@@ -11,6 +11,7 @@ class Graph
     Protocol _protocol;
     Listener& _lstream;
     std::vector<Node> _nodes;
+    std::vector<std::stringstream> _streams;
     int _nodeCount;
 
   public:
