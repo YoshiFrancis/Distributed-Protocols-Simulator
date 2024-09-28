@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.29.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.1/CMakeSystem.cmake"
   "/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/src/CMakeLists.txt"
+  "/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/src/stp/CMakeLists.txt"
   "/opt/homebrew/Cellar/cmake/3.29.1/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.1/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.1/share/cmake/Modules/CMakeGenericSystem.cmake"
@@ -40,10 +41,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/stp/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main.dir/DependInfo.cmake"
   "src/CMakeFiles/graph.dir/DependInfo.cmake"
+  "src/stp/CMakeFiles/stp.dir/DependInfo.cmake"
   )

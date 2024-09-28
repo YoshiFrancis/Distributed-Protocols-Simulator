@@ -1,8 +1,6 @@
 #include "stp.hpp"
-#include <iostream>
-#include <string>
 
-STP::STP(int id, std::unordered_map<int, int> map) : _pathWeight(0), _nextNodeId(id), _id(id), _rootId(id), _map(map)
+STP::STP(int id, std::unordered_map<int, int> map) : Protocol(id, map), _pathWeight(0), _nextNodeId(id), _rootId(id)
 {}
 
 bool STP::input(const std::string& message) {

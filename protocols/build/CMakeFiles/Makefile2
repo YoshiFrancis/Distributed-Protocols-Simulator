@@ -81,21 +81,39 @@ clean: src/clean
 
 # Recursive "all" directory target.
 src/all: src/CMakeFiles/graph.dir/all
+src/all: src/stp/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
-src/preinstall:
+src/preinstall: src/stp/preinstall
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/graph.dir/clean
+src/clean: src/stp/clean
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory src/stp
+
+# Recursive "all" directory target.
+src/stp/all: src/stp/CMakeFiles/stp.dir/all
+.PHONY : src/stp/all
+
+# Recursive "preinstall" directory target.
+src/stp/preinstall:
+.PHONY : src/stp/preinstall
+
+# Recursive "clean" directory target.
+src/stp/clean: src/stp/CMakeFiles/stp.dir/clean
+.PHONY : src/stp/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
 CMakeFiles/main.dir/all: src/CMakeFiles/graph.dir/all
+CMakeFiles/main.dir/all: src/stp/CMakeFiles/stp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles --progress-num=5,6 "Built target main"
@@ -103,7 +121,7 @@ CMakeFiles/main.dir/all: src/CMakeFiles/graph.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 0
 .PHONY : CMakeFiles/main.dir/rule
@@ -121,7 +139,7 @@ CMakeFiles/main.dir/clean:
 # Target rules for target src/CMakeFiles/graph.dir
 
 # All Build rule for target.
-src/CMakeFiles/graph.dir/all:
+src/CMakeFiles/graph.dir/all: src/stp/CMakeFiles/stp.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/graph.dir/build.make src/CMakeFiles/graph.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/graph.dir/build.make src/CMakeFiles/graph.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles --progress-num=1,2,3,4 "Built target graph"
@@ -129,7 +147,7 @@ src/CMakeFiles/graph.dir/all:
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/graph.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/graph.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/graph.dir/rule
@@ -142,6 +160,32 @@ graph: src/CMakeFiles/graph.dir/rule
 src/CMakeFiles/graph.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/graph.dir/build.make src/CMakeFiles/graph.dir/clean
 .PHONY : src/CMakeFiles/graph.dir/clean
+
+#=============================================================================
+# Target rules for target src/stp/CMakeFiles/stp.dir
+
+# All Build rule for target.
+src/stp/CMakeFiles/stp.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles --progress-num=7,8 "Built target stp"
+.PHONY : src/stp/CMakeFiles/stp.dir/all
+
+# Build rule for subdir invocation for target.
+src/stp/CMakeFiles/stp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/CMakeFiles/stp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 0
+.PHONY : src/stp/CMakeFiles/stp.dir/rule
+
+# Convenience name for target.
+stp: src/stp/CMakeFiles/stp.dir/rule
+.PHONY : stp
+
+# clean rule for target.
+src/stp/CMakeFiles/stp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/clean
+.PHONY : src/stp/CMakeFiles/stp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

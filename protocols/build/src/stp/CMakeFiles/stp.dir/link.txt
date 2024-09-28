@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libstp.a CMakeFiles/stp.dir/stp.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libstp.a

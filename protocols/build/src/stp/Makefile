@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/src/stp//CMakeFiles/progress.marks
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,81 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named main
+# Convenience name for target.
+src/stp/CMakeFiles/stp.dir/rule:
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/stp/CMakeFiles/stp.dir/rule
+.PHONY : src/stp/CMakeFiles/stp.dir/rule
 
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
-# Target rules for targets named graph
-
-# Build rule for target.
-graph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 graph
-.PHONY : graph
-
-# fast build rule for target.
-graph/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/graph.dir/build.make src/CMakeFiles/graph.dir/build
-.PHONY : graph/fast
-
-#=============================================================================
-# Target rules for targets named stp
-
-# Build rule for target.
-stp: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stp
+# Convenience name for target.
+stp: src/stp/CMakeFiles/stp.dir/rule
 .PHONY : stp
 
 # fast build rule for target.
 stp/fast:
-	$(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/build
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/build
 .PHONY : stp/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+stp.o: stp.cpp.o
+.PHONY : stp.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+stp.cpp.o:
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/stp.cpp.o
+.PHONY : stp.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+stp.i: stp.cpp.i
+.PHONY : stp.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+stp.cpp.i:
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/stp.cpp.i
+.PHONY : stp.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+stp.s: stp.cpp.s
+.PHONY : stp.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+stp.cpp.s:
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(MAKE) $(MAKESILENT) -f src/stp/CMakeFiles/stp.dir/build.make src/stp/CMakeFiles/stp.dir/stp.cpp.s
+.PHONY : stp.cpp.s
 
 # Help Target
 help:
@@ -187,12 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... graph"
-	@echo "... main"
 	@echo "... stp"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... stp.o"
+	@echo "... stp.i"
+	@echo "... stp.s"
 .PHONY : help
 
 
@@ -204,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
