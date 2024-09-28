@@ -2,7 +2,7 @@
 
 #define BROADCAST 0
 
-Node::Node(std::istream& lstream, Protocol proto, int id) :
+Node::Node(std::ostream& lstream, Protocol* proto, int id) :
   _lstream(lstream), _proto(proto), _id(id)
 {
 
@@ -23,16 +23,16 @@ void Node::addEdge(Edge edge, bool to) {
 void Node::perform() {
   std::string message;
   for (; message != ""; message = read()) {
-    _proto.input(message);
+    _proto->input(message);
   }
-  std::string reply = _proto.reply();
+  std::string reply = _proto->reply();
   write(reply, BROADCAST);
 }
 
 std::string Node::read() {
   std::string message;
   for (auto& edge : _neighborsFrom) {
-    message << edge.read();
+    message = edge.read();
     if (message.length() > 0)
       break;
   }

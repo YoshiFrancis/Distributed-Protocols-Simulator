@@ -23,8 +23,8 @@ void generateEdges(std::vector<std::vector<int>>& edges_list) {
   }
 }
 
-Graph::Graph(Protocol protocol, std::istream& lstream, int nodeCount)
-  : _protocol(protocol), _lstream(lstream), _nodeCount(nodeCount), _nodes(nodeCount)
+Graph::Graph(Protocol* protocol, std::ostream& lstream, int nodeCount)
+  : _protocol(protocol), _lstream(lstream), _nodeCount(nodeCount)
 {
   std::random_device dev;
   std::mt19937 rng(dev());
@@ -41,13 +41,15 @@ Graph::Graph(Protocol protocol, std::istream& lstream, int nodeCount)
         continue; 
       std::stringstream connection_1;
       std::stringstream connection_2;
-      _streams.push_back(connection_1);
-      _streams.push_back(connection_2);
+      _streams.push_back(std::move(connection_1));
+      std::stringstream& new_conn_1 = _streams.back();
+      _streams.push_back(std::move(connection_2));
+      std::stringstream& new_conn_2 = _streams.back();
       int weight = dist(rng);
-      Edge nodeOneEdge(connection_1, connection_2, weight, edgeIdx);
+      Edge nodeOneEdge(new_conn_1, new_conn_2, weight, edgeIdx);
       _nodes[idx].addEdge(nodeOneEdge, true);
       _nodes[idx].addEdge(nodeOneEdge, false);
-      Edge nodeTwoEdge(connection_2, connection_1, weight, idx);
+      Edge nodeTwoEdge(new_conn_2, new_conn_1, weight, idx);
       _nodes[edgeIdx].addEdge(nodeTwoEdge, true);
       _nodes[edgeIdx].addEdge(nodeTwoEdge, false);
     }

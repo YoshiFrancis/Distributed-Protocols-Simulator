@@ -14,11 +14,7 @@ class Edge
 
   public:
     Edge(std::istream& stream, std::ostream& ostream, int weight, int id);
-    Edge(Edge &&) = default;
-    Edge(const Edge &) = default;
-    Edge &operator=(Edge &&) = default;
-    Edge &operator=(const Edge &) = default;
-    ~Edge();
+    virtual ~Edge();
 
     void write(std::string message);
     std::string read();

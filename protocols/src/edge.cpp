@@ -1,17 +1,18 @@
 #include "edge.hpp"
+#include <iostream>
 
 Edge::Edge(std::istream& istream, std::ostream& ostream, int weight, int id) :
   _istream(istream), _ostream(ostream), _weight(weight), _id(id)
 {}
 
-void Edge::write(const std::string& message) {
-  _istream << message << " ";
+void Edge::write(std::string message) {
+  _ostream << message << " ";
 }
 
 std::string Edge::read() {
   std::string message;
-  if (_stream.peek() != std::char_traits<wchar_t>::eof())
-    message << _ostream;
+  if (_istream.peek() != std::char_traits<wchar_t>::eof())
+    _istream >> message;
   return message;
 }
 

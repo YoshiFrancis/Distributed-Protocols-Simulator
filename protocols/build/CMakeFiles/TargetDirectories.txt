@@ -1,0 +1,6 @@
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles/main.dir
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles/edit_cache.dir
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/CMakeFiles/rebuild_cache.dir
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/src/CMakeFiles/graph.dir
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/src/CMakeFiles/edit_cache.dir
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/build/src/CMakeFiles/rebuild_cache.dir
