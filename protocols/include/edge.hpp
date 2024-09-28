@@ -16,7 +16,7 @@ class Edge
     Edge(std::istream& stream, std::ostream& ostream, int weight, int id);
     virtual ~Edge();
 
-    void write(std::string message);
+    void write(std::string& message);
     std::string read();
     int getWeight() const;
     int getId() const;
