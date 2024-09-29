@@ -65,3 +65,11 @@ void Node::write(const std::string& message, int id) const {
 std::string Node::getState() const {
   return _proto->getState();
 }
+
+const std::vector<Edge>& Node::getEdges() const {
+  return _neighborsTo;
+}
+
+int Node::getId() const {
+  return _id;
+}

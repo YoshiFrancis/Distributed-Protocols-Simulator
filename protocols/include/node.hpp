@@ -21,6 +21,8 @@ public:
   void addEdge(const Edge& edge, bool to);
   bool readBuffer();
   std::string getState() const;
+  const std::vector<Edge>& getEdges() const;
+  int getId() const;
 
 private:
   std::string read();

@@ -1,6 +1,15 @@
 #include "graph.hpp"
 #include <vector>
+#include <set>
 #include <random>
+
+bool contains(std::vector<int>& vec, int val) {
+  for (int v : vec) {
+    if (v == val)
+      return true;
+  } 
+  return false;
+}
 
 void generateEdges(std::vector<std::vector<int>>& edges_list) {
   std::random_device dev;
@@ -15,7 +24,7 @@ void generateEdges(std::vector<std::vector<int>>& edges_list) {
     while (edgeCount > 0) {
       --edgeCount;
       int edgeIdx = distEdgeIdx(rng);
-      if (edgeIdx == idx)
+      if (edgeIdx == idx || contains(edges_list[idx], edgeIdx))
         continue;
       edges_list[idx].push_back(edgeIdx);
       edges_list[edgeIdx].push_back(idx); // links are duplex, so if edges_list[idx] connect to edgeIdx, edgeIdx also connects back
@@ -96,5 +105,16 @@ std::string Graph::getStateOfAll() const {
   return state;
 }
 
-
+std::string Graph::getEdges() const {
+  std::string edges_str{};
+  for (int idx = 0; idx < _nodes.size(); ++idx) {
+    const std::vector<Edge>& edges = _nodes[idx].getEdges();
+    for (const Edge& edge : edges) {
+      if (edge.getId() <= idx)
+        continue;
+      edges_str += "[" + std::to_string(_nodes[idx].getId()) + ", " + std::to_string(edge.getId()) + ", " + std::to_string(edge.getWeight()) + "]\n";
+    }
+  }
+  return edges_str;
+}
 

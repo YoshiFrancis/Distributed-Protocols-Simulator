@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
   int nodeCount = 5;
   Graph graph(stp.clone(), listener, nodeCount);
   std::cout << "Created graph\n";
+  std::cout << graph.getEdges() << "\n";
   std::cout << graph.getStateOfAll() << "\n";
   graph.runToEnd();
   std::cout << graph.getStateOfAll() << "\n";
