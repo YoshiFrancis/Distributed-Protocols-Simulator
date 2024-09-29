@@ -11,12 +11,16 @@ class STP : public Protocol {
     int _pathWeight;
     int _nextNodeId;
     int _rootId;
+    int _id;
+    std::unordered_map<int, int> _map;
 
   public:
-    STP(int id, std::unordered_map<int, int> map);
+    STP();
+    void init(int id, std::unordered_map<int, int> map) override;
     bool input(const std::string& message) override;
     std::string reply() const override;
     void setMap(int key, int value) override;
+    Protocol* clone() override;
   private:
     std::array<int, 4> parse(const std::string& message) const;
 };

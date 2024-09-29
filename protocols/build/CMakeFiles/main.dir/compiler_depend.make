@@ -623,6 +623,7 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ratio \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdexcept \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdint.h \
@@ -773,8 +774,17 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h
+  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
+  /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/edge.hpp \
+  /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/graph.hpp \
+  /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/node.hpp \
+  /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/protocol.hpp \
+  /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/src/stp/stp.hpp
 
+
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/src/stp/stp.hpp:
+
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/node.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/limits.h:
 
@@ -906,6 +916,8 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/unordered_map:
@@ -1009,6 +1021,8 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/lazy.h:
+
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/edge.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_void.h:
 
@@ -1269,6 +1283,8 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/sortable.h:
+
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/graph.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/reverse_access.h:
 
@@ -2087,6 +2103,8 @@ CMakeFiles/main.dir/main.cpp.o: /Users/fozua/Desktop/Distributed-Protocols-Simul
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sched.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/front_insert_iterator.h:
+
+/Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/protocol.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_sorted_until.h:
 

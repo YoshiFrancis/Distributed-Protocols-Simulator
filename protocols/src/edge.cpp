@@ -5,6 +5,8 @@ Edge::Edge(std::istream& istream, std::ostream& ostream, int weight, int id) :
   _istream(istream), _ostream(ostream), _weight(weight), _id(id)
 {}
 
+Edge::~Edge() {}
+
 void Edge::write(std::string message) {
   _ostream << message << " ";
 }

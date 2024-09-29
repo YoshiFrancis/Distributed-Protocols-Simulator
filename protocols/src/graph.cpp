@@ -23,6 +23,8 @@ void generateEdges(std::vector<std::vector<int>>& edges_list) {
   }
 }
 
+Graph::~Graph() {}
+
 Graph::Graph(Protocol* protocol, std::ostream& lstream, int nodeCount)
   : _protocol(protocol), _lstream(lstream), _nodeCount(nodeCount)
 {

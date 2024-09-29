@@ -1,7 +1,14 @@
 #include "stp.hpp"
 
-STP::STP(int id, std::unordered_map<int, int> map) : Protocol(id, map), _pathWeight(0), _nextNodeId(id), _rootId(id)
-{}
+STP::STP() {}
+
+void STP::init(int id, std::unordered_map<int, int> map) {
+  _id = id;
+  _map = map;
+  _pathWeight = 0;
+  _nextNodeId = id;
+  _rootId = id;
+}
 
 bool STP::input(const std::string& message) {
   std::array<int, 4> info = parse(message);
@@ -29,7 +36,6 @@ bool STP::input(const std::string& message) {
       }
     }
   }
-
   return _hasChanged;
 }
 
@@ -60,4 +66,12 @@ std::string STP::reply() const {
     + "," + std::to_string(_id)
     + "," + std::to_string(_nextNodeId) // important we do no space with commas because std::iostream << stops on spaces
     + ")\n";
+}
+
+void STP::setMap(int key, int value) {
+  _map[key] = value;
+}
+
+Protocol* STP::clone() {
+  return new STP;
 }

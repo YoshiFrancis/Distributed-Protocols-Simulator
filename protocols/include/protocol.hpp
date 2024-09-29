@@ -5,18 +5,13 @@
 #include <unordered_map>
 
 class Protocol {
-protected:
-  int _id;
-  std::unordered_map<int, int> _map;
 public:
-  Protocol(int id, std::unordered_map<int, int> map);
+  inline virtual ~Protocol() {};
+  virtual void init(int id, std::unordered_map<int, int> map) = 0;
   virtual bool input(const std::string& message) = 0;
   virtual std::string reply() const = 0;
   virtual void setMap(int key, int value) = 0;
+  virtual Protocol* clone() = 0;
 };
-
-Protocol::Protocol(int id, std::unordered_map<int, int> map) :
-  _id(id), _map(map)
-{}
 
 #endif // !PROTOCOL_HPP_

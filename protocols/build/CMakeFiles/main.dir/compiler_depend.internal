@@ -624,6 +624,7 @@ CMakeFiles/main.dir/main.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ratio
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdexcept
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdint.h
@@ -775,4 +776,9 @@ CMakeFiles/main.dir/main.cpp.o
  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h
  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h
+ /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/edge.hpp
+ /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/graph.hpp
+ /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/node.hpp
+ /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/include/protocol.hpp
+ /Users/fozua/Desktop/Distributed-Protocols-Simulator/protocols/src/stp/stp.hpp
 
