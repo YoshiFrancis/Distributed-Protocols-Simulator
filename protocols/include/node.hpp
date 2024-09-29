@@ -25,7 +25,7 @@ public:
   int getId() const;
 
 private:
-  std::string read();
+  std::vector<std::string> read();
   void write(const std::string& message, int id) const;
 
 };

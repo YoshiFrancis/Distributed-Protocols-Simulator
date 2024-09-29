@@ -15,6 +15,7 @@ Node::~Node() {
 
 void Node::broadcastControlMessage() const {
   std::string broadcast = _proto->reply();
+  std::cout << "broadcasting " << broadcast << "\n";
   write(broadcast, BROADCAST);
 }
 
@@ -28,23 +29,23 @@ void Node::addEdge(const Edge& edge, bool to) {
 }
 
 bool Node::readBuffer() {
-  std::string message = read();
-  if (message == "")
+  std::vector<std::string> messages = read();
+  if (messages.size() == 0)
       return false;
-  for (; message != ""; message = read()) {
+  for (std::string message : messages) {
     _proto->input(message);
   }
   return true;
 }
 
-std::string Node::read() {
-  std::string message;
+std::vector<std::string> Node::read() {
+  std::vector<std::string> messages;
   for (auto& edge : _neighborsFrom) {
-    message = edge.read();
+    std::string message = edge.read();
     if (message.length() > 0)
-      break;
+      messages.push_back(message);
   }
-  return message;
+  return messages;
 }
 
 void Node::write(const std::string& message, int id) const {

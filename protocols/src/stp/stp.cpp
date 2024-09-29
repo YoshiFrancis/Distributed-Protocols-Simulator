@@ -1,4 +1,5 @@
 #include "stp.hpp"
+#include <iostream>
 
 STP::STP() {}
 
@@ -8,35 +9,35 @@ void STP::init(int id, std::unordered_map<int, int> map) {
   _pathWeight = 0;
   _nextNodeId = id;
   _rootId = id;
+  _shouldBroadcast = true;
 }
 
-bool STP::input(const std::string& message) {
+void STP::input(const std::string& message) {
   std::array<int, 4> info = parse(message);
-  bool _hasChanged = false;
-  if (info[3] == _nextNodeId) {
+  if (info[3] == _nextNodeId && _nextNodeId != _id) {
     _rootId = info[0];
     _pathWeight = info[1] + _map[info[3]];
-    _hasChanged = true;
+    _shouldBroadcast = true;
   } 
-  else { if (info[0] < _rootId) {
+  else { 
+    if (info[0] < _rootId) {
       _rootId = info[0];
       _pathWeight = info[1] + _map[info[3]];
       _nextNodeId = info[3];
-      _hasChanged = true;
+      _shouldBroadcast = true;
     } 
     else if (info[0] == _rootId) {
       if (info[1] + _map[info[3]] < _pathWeight) {
         _pathWeight = info[1] + _map[info[3]];
         _nextNodeId = info[3];
-        _hasChanged = true;
+        _shouldBroadcast = true;
       } 
       else if (info[1] + _map[info[3]] == _pathWeight && info[3] < _nextNodeId) {
         _nextNodeId = info[3];
-        _hasChanged = true;
+        _shouldBroadcast = true;
       }
     }
   }
-  return _hasChanged;
 }
 
 std::array<int, 4> STP::parse(const std::string& message) const {
@@ -60,12 +61,13 @@ std::array<int, 4> STP::parse(const std::string& message) const {
 // (R, P, C, N)
 // Knowledge of a root R with a path weight of P from the current node
 // C with the next hop of N
-std::string STP::reply() const {
-  return "(" + std::to_string(_rootId)
-    + "," + std::to_string(_pathWeight)
-    + "," + std::to_string(_id)
-    + "," + std::to_string(_nextNodeId) // important we do no space with commas because std::iostream << stops on spaces
-    + ")\n";
+std::string STP::reply() {
+  if (_shouldBroadcast) {
+    _shouldBroadcast = false;
+    return getState();
+  }
+  else
+    return "";
 }
 
 void STP::setMap(int key, int value) {
@@ -73,7 +75,11 @@ void STP::setMap(int key, int value) {
 }
 
 std::string STP::getState() const {
-  return reply();
+  return "(" + std::to_string(_rootId)
+    + "," + std::to_string(_pathWeight)
+    + "," + std::to_string(_id)
+    + "," + std::to_string(_nextNodeId) // important we do no space with commas because std::iostream << stops on spaces
+    + ")\n";
 }
 
 Protocol* STP::clone() {

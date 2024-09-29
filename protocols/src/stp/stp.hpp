@@ -12,13 +12,14 @@ class STP : public Protocol {
     int _nextNodeId;
     int _rootId;
     int _id;
+    bool _shouldBroadcast;
     std::unordered_map<int, int> _map;
 
   public:
     STP();
     void init(int id, std::unordered_map<int, int> map) override;
-    bool input(const std::string& message) override;
-    std::string reply() const override;
+    void input(const std::string& message) override;
+    std::string reply() override;
     void setMap(int key, int value) override;
     std::string getState() const override;
     Protocol* clone() override;
