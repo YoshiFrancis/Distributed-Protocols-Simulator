@@ -13,8 +13,11 @@ int main(int argc, char* argv[]) {
   Graph graph(stp.clone(), listener, nodeCount);
   std::cout << "printing out settup:\n" << graph.getEdges() << "\n";
   graph.next();
+  std::cout << graph.getStateOfAll() << "\n";
   graph.next();
+  std::cout << graph.getStateOfAll() << "\n";
   graph.next();
+  std::cout << graph.getStateOfAll() << "\n";
   graph.next();
   /*graph.next();*/
   /*std::cout << graph.getStateOfAll() << "\n";*/
