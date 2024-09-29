@@ -20,6 +20,7 @@ class STP : public Protocol {
     bool input(const std::string& message) override;
     std::string reply() const override;
     void setMap(int key, int value) override;
+    std::string getState() const override;
     Protocol* clone() override;
   private:
     std::array<int, 4> parse(const std::string& message) const;

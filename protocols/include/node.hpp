@@ -17,12 +17,14 @@ private:
 public:
   Node(std::ostream& lstream, Protocol* proto, int id);
   virtual ~Node();
-  void addEdge(Edge edge, bool to);
-  void perform();
+  void broadcastControlMessage() const;
+  void addEdge(const Edge& edge, bool to);
+  bool readBuffer();
+  std::string getState() const;
 
 private:
   std::string read();
-  void write(const std::string& message, int id);
+  void write(const std::string& message, int id) const;
 
 };
 

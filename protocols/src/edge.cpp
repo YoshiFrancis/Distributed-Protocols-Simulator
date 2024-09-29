@@ -7,8 +7,8 @@ Edge::Edge(std::istream& istream, std::ostream& ostream, int weight, int id) :
 
 Edge::~Edge() {}
 
-void Edge::write(std::string message) {
-  _ostream << message << " ";
+void Edge::write(std::string message) const {
+  _ostream << message << "\n";
 }
 
 std::string Edge::read() {

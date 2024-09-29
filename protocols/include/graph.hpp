@@ -17,8 +17,9 @@ class Graph
   public:
     Graph(Protocol* protocol, std::ostream& lstream, int nodeCount);
     virtual ~Graph();
-    void next(); // go to next round of iterations
-    bool runToEnd(); // finish protocol until it stabilizes, returns false if never does (after 100 iterations)
+    bool next(); // go to next round of iterations; returns false when no broadcasts were made
+    void runToEnd(); // finish protocol until it stabilizes, returns false if never does (after 100 iterations)
+    std::string getStateOfAll() const;
 };
 
 

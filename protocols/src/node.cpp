@@ -5,6 +5,7 @@
 Node::Node(std::ostream& lstream, Protocol* proto, int id) :
   _lstream(lstream), _proto(proto), _id(id)
 {
+  _proto->init(id, {});
 
 }
 
@@ -12,21 +13,28 @@ Node::~Node() {
 
 }
 
-void Node::addEdge(Edge edge, bool to) {
+void Node::broadcastControlMessage() const {
+  std::string broadcast = _proto->reply();
+  write(broadcast, BROADCAST);
+}
+
+void Node::addEdge(const Edge& edge, bool to) {
   if (to) {
     _neighborsTo.push_back(edge);
   } else {
     _neighborsFrom.push_back(edge);
   }
+  _proto->setMap(edge.getId(), edge.getWeight());
 }
 
-void Node::perform() {
-  std::string message;
+bool Node::readBuffer() {
+  std::string message = read();
+  if (message == "")
+      return false;
   for (; message != ""; message = read()) {
     _proto->input(message);
   }
-  std::string reply = _proto->reply();
-  write(reply, BROADCAST);
+  return true;
 }
 
 std::string Node::read() {
@@ -39,7 +47,7 @@ std::string Node::read() {
   return message;
 }
 
-void Node::write(const std::string& message, int id) {
+void Node::write(const std::string& message, int id) const {
   if (id == BROADCAST) {
     for (auto& edge : _neighborsTo) {
       edge.write(message);
@@ -52,4 +60,8 @@ void Node::write(const std::string& message, int id) {
       }
     }
   }
+}
+
+std::string Node::getState() const {
+  return _proto->getState();
 }

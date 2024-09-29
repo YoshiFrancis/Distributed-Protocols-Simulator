@@ -11,6 +11,7 @@ public:
   virtual bool input(const std::string& message) = 0;
   virtual std::string reply() const = 0;
   virtual void setMap(int key, int value) = 0;
+  virtual std::string getState() const = 0;
   virtual Protocol* clone() = 0;
 };
 

@@ -72,6 +72,10 @@ void STP::setMap(int key, int value) {
   _map[key] = value;
 }
 
+std::string STP::getState() const {
+  return reply();
+}
+
 Protocol* STP::clone() {
   return new STP;
 }
