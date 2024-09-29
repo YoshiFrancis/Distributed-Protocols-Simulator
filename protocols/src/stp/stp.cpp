@@ -1,5 +1,4 @@
 #include "stp.hpp"
-#include <iostream>
 
 STP::STP() {}
 
@@ -14,7 +13,7 @@ void STP::init(int id, std::unordered_map<int, int> map) {
 
 void STP::input(const std::string& message) {
   std::array<int, 4> info = parse(message);
-  if (info[3] == _nextNodeId && _nextNodeId != _id) {
+  if (info[2] == _nextNodeId) {
     _rootId = info[0];
     _pathWeight = info[1] + _map[info[3]];
     _shouldBroadcast = true;

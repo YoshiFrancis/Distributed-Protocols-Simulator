@@ -15,7 +15,6 @@ Node::~Node() {
 
 void Node::broadcastControlMessage() const {
   std::string broadcast = _proto->reply();
-  std::cout << "broadcasting " << broadcast << "\n";
   write(broadcast, BROADCAST);
 }
 
