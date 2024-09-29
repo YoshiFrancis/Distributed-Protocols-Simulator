@@ -15,25 +15,24 @@ void STP::input(const std::string& message) {
   std::array<int, 4> info = parse(message);
   if (info[2] == _nextNodeId) {
     _rootId = info[0];
-    _pathWeight = info[1] + _map[info[3]];
+    _pathWeight = info[1] + _map[info[2]];
     _shouldBroadcast = true;
   } 
   else { 
     if (info[0] < _rootId) {
       _rootId = info[0];
-      _pathWeight = info[1] + _map[info[3]];
-      _nextNodeId = info[3];
+      _pathWeight = info[1] + _map[info[2]];
+      _nextNodeId = info[2];
       _shouldBroadcast = true;
     } 
     else if (info[0] == _rootId) {
-      if (info[1] + _map[info[3]] < _pathWeight) {
-        _pathWeight = info[1] + _map[info[3]];
-        _nextNodeId = info[3];
+      if (info[1] + _map[info[2]] < _pathWeight) {
+        _pathWeight = info[1] + _map[info[2]];
+        _nextNodeId = info[2];
         _shouldBroadcast = true;
       } 
-      else if (info[1] + _map[info[3]] == _pathWeight && info[3] < _nextNodeId) {
-        _nextNodeId = info[3];
-        _shouldBroadcast = true;
+      else if (info[1] + _map[info[2]] == _pathWeight && info[2] < _nextNodeId) {
+        _nextNodeId = info[2];
       }
     }
   }
@@ -57,9 +56,6 @@ std::array<int, 4> STP::parse(const std::string& message) const {
   return parsedNumbers;
 }
 
-// (R, P, C, N)
-// Knowledge of a root R with a path weight of P from the current node
-// C with the next hop of N
 std::string STP::reply() {
   if (_shouldBroadcast) {
     _shouldBroadcast = false;
@@ -73,6 +69,9 @@ void STP::setMap(int key, int value) {
   _map[key] = value;
 }
 
+// (R, P, C, N)
+// Knowledge of a root R with a path weight of P from the current node
+// C with the next hop of N
 std::string STP::getState() const {
   return "(" + std::to_string(_rootId)
     + "," + std::to_string(_pathWeight)

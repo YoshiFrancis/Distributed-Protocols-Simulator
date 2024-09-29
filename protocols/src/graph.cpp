@@ -14,7 +14,7 @@ bool contains(std::vector<int>& vec, int val) {
 void generateEdges(std::vector<std::vector<int>>& edges_list) {
   std::random_device dev;
   std::mt19937 rng(dev());
-  std::uniform_int_distribution<std::mt19937::result_type> distCount(1, edges_list.size() / 2); 
+  std::uniform_int_distribution<std::mt19937::result_type> distCount(1, 2); 
   std::uniform_int_distribution<std::mt19937::result_type> distEdgeIdx(0, edges_list.size() - 1); 
   
   for (int idx = 0; idx < edges_list.size(); ++idx) {
@@ -23,9 +23,11 @@ void generateEdges(std::vector<std::vector<int>>& edges_list) {
     int edgeCount = distCount(rng);
     while (edgeCount > 0) {
       int edgeIdx = distEdgeIdx(rng);
-      if (edgeIdx == idx || contains(edges_list[idx], edgeIdx)) // removes duplicates and cannot create edge for one self
+      if (edgeIdx == idx) // removes duplicates and cannot create edge for one self
         continue;
       --edgeCount;
+      if (contains(edges_list[idx], edgeIdx))
+        continue;
       edges_list[idx].push_back(edgeIdx);
       edges_list[edgeIdx].push_back(idx); // links are duplex, so if edges_list[idx] connect to edgeIdx, edgeIdx also connects back
     }
@@ -50,7 +52,9 @@ Graph::Graph(Protocol* protocol, std::ostream& lstream, int nodeCount)
   // making the graph
   std::vector<Edge> edges;
   std::vector<std::vector<int>> adj_list(_nodeCount);
+  std::cout << "generating Edges\n";
   generateEdges(adj_list);
+  std::cout << "generated Edges\n";
   int total_edges = 0;
   for (std::vector<int>& adj : adj_list) {
     total_edges += adj.size();
